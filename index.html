@@ -1,0 +1,371 @@
+<!doctype html>
+<html>
+<head>
+<title>Isaak Mail</title>
+<style type="text/css">
+/**** Color Reference ****
+Name ****** Hex **********
+**************************
+dark dark 	#020304 black
+dark		#541F14	brown
+med dark 	#626266	gray
+med lite 	#938172	khaki
+lite dark	#CC9E61 orange
+lite med	#C5C5C5 gray
+lite bright	#F7EDBF	alert yellow
+lite lite	#F1EED9	lt yellow
+lite litest	#F8F6F3 white
+*************************/
+/**Page**/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td
+				{margin:0;padding:0}
+body 			{margin:0 auto;width:940px;font-family:Helvetica,Verdana,Arial,sans-serif;background:#F8F6F3}
+navsearch, 
+footer, 
+#mail-header, 
+#my-nav, 
+#mail-btns,
+.divider, 
+#app-nav, 
+#settings-nav, 
+#sect-1, 
+#sect-2, 
+#sect-3			{position:absolute}
+/**Navigation**/
+nav, 
+#left-nav, 
+#right-nav		{position:fixed;z-index:100}
+nav				{background:#020304;top:0;right:0;left:0;height:30px;font:13px/27px Arial,sans-serif;font-weight:bold;border-bottom:1px solid #020304;white-space:nowrap}
+#my-nav			{display:block;top:0;left:10px;height:30px;list-style:none}
+.divider		{left:170px;top:20%;bottom:20%;border-left:2px solid #F1EED9}
+#app-tools		{display:block;list-style:none}
+#settings-nav	{top:0;right:0;height:30px;list-style:none}
+#mail-header	{background:#eee;border-bottom:1px solid #ccc;top:31px;right:0;left:0;height:50px;box-shadow:0 2px 6px #888}
+#mail-btns-L	{display:block;top:10px;left:10px;float:left;padding:8px}
+#mail-btns-R	{display:block;top:10px;left:10px;float:right;padding:8px}
+.navstyle 		{padding:0 9px;vertical-align:top;list-style:none;display:inline}
+/*--- Left Dropdown Menu---*/
+#app-nav		{display:block;top:0;left:185px;height:30px;list-style:none;width:100%;position:relative;z-index:100}
+#app-nav li		{float:left;position:relative}
+#app-nav a		{display:block;text-decoration:none}
+#app-nav a:hover{color:#F8F6F3;background:#020304;text-decoration:underline}
+#app-nav ul		{background:#020304;list-style:none;position:absolute;left:-9999px;padding:12px;line-height:2.5em}
+#app-nav ul li	{padding-top:1px;float:none}
+#app-nav ul a	{white-space:nowrap}
+#app-nav li:hover ul{left:0}
+#app-nav li:hover a{text-decoration:underline}
+#app-nav li:hover ul a{text-decoration:none}
+#app-nav li:hover ul li a:hover{background:#938172;padding:0 10px}
+/**Layout**/
+#app-tools		{}
+.settings		{background:red;padding:0 9px;vertical-align:top;list-style:none;display:inline}
+#sect-1			{border-right:1px solid #626266;top:81px;bottom:0;left:0;width:185px;overflow:auto;font-size:small;padding:8px;z-index:-1000}
+#sect-2			{background:#C5C5C5;top:81px;right:201px;bottom:41px;left:201px;overflow:auto;padding:8px;z-index:-1002}
+#sect-2 ul		{margin-bottom:8px}
+#mail-ad		{border:1px solid #938172;background:#F8F6F3;padding:6px;margin-bottom:8px;overflow:none;font-size:small}
+ul li.mail		{border:1px solid #938172;background:#F8F6F3;padding:6px;overflow:none;font-size:small}
+#sect-3			{border-left:1px solid #626266;top:81px;right:0;bottom:0;width:185px;overflow:auto;font-size:small;padding:8px;z-index:-1001}
+footer			{border-top:1px solid #626266;bottom:0;left:201px;right:201px;height:40px;overflow:hidden}
+/**Text**/
+h1				{font:13px/27px;font-weight:bold;color:#020304}
+h2 				{font:20px/27px;font-weight:bold;color:#541F14}
+h3 				{font:16px/27px;font-weight:bold;color:#626266}
+p 				{padding-bottom:22px}
+a, a:visited	{color:#aaa;text-decoration:none}
+a:hover			{color:#ccc;text-decoration:none}
+.small-text,
+.small-text a,
+.small-text a:hover	
+				{color:#938172;font-size:small}
+/**Lists**/
+ul				{list-style-type:none;padding:0px;margin:0px}
+ul li			{}
+.header-icon	{vertical-align:middle}
+ul li#left-nav 	{display:inline}
+ul li#navstyle a{text-align:center;border-left:1px solid #fff}
+ul li#navstyle a:hover 
+				{text-align:center;border-left:1px solid #fff}
+.side-nav		{font-weight:bold;color:#020304;line-height:1.5em}
+.side-nav ul li {font-weight:normal;color:#020304;padding-left:12px}				
+footer ul		{margin:10px}
+/**Buttons**/
+button.comp-btn {padding:8px 30px;-webkit-border-radius:2px 2px;border:solid 1px #626266;background:#C5C5C5;color:#020304;text-decoration:none;font-weight:bold;cursor:pointer;display:inline-block;text-align:center;line-height:1}
+button.sm-btn	{padding:8px 10px;-webkit-border-radius:2px 2px;border:solid 1px #626266;background:#F8F6F3;color:#020304;text-decoration:none;cursor:pointer;display:inline-block;text-align:center;line-height:1}
+button.right-btn{margin:0 0 0 -8px;padding:8px 10px;-webkit-border-radius:2px 2px;border:solid 1px #626266;background:#F8F6F3;color:#020304;text-decoration:none;cursor:pointer;display:inline-block;text-align:center;line-height:1}
+</style>
+<link rel="stylesheet" type="text/css" href="jquery-ui-1.8.21.custom.css">
+<script type=text/javascript src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type=text/javascript src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+<script>
+	$(function() {
+		// a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
+		$( "#dialog:ui-dialog" ).dialog( "destroy" );
+	
+		$( "#dialog-modal" ).dialog({
+			title: "Compose Email",
+			height: 480,
+			width: 720,
+			resizable: false,
+			modal: true
+		});
+	});
+</script>
+</head>
+
+<body>
+<!-- Navigation -->
+<nav>
+	<linkbutton>
+	<ul id="my-nav"><!-- left -->
+		<li class="navstyle"><a href="#" title="Mail"><img class="header-icon" src="art/icons/white/16x16/mail.png" id="Mail"></a></li>			
+		<li class="navstyle"><a href="#" title="Social"><img class="header-icon" src="art/icons/white/16x16/users.png" id="Social"></a></li>	
+		<li class="navstyle"><a href="#" title="Documents"><img class="header-icon" src="art/icons/white/16x16/doc_lines.png" id="Documents"></a></li>
+		<li class="navstyle"><a href="#" title="Calendar"><img class="header-icon" src="art/icons/white/16x16/calendar_1.png" id="Calendar"></a></li>		
+	</ul>
+		<span class="divider"></span>
+	<ul id="app-nav"><!-- right -->
+		<li class="navstyle"><a href="#" title="Search"><img class="header-icon" src="art/icons/white/16x16/zoom.png" id="Search"></a></li>
+		<li class="navstyle"><a href="#" title="Maps"><img class="header-icon" src="art/icons/white/16x16/pin_map.png" id="Maps"></a></li>
+		<li class="navstyle"><a href="#" title="Images"><img class="header-icon" src="art/icons/white/16x16/picture.png" id="Images"></a></li>
+		<li class="navstyle"><a href="#" title="Videos"><img class="header-icon" src="art/icons/white/16x16/preso.png" id="Videos"></a></li>
+		<li class="navstyle"><a href="#" title="News"><img class="header-icon" src="art/icons/white/16x16/calendar_1.png" id="News"></a></li>
+		<li class="navstyle"><a href="#" title="Shopping"><img class="header-icon" src="art/icons/white/16x16/globe_2.png" id="Shopping"></a></li>
+		<li class="navstyle"><a href="#" title="More Apps and App Store">More Apps</a>
+			<ul>
+				<li><a href="#">Small product (one)</a></li>
+				<li><a href="#">Small product (two)</a></li>
+				<li><a href="#">Small product (three)</a></li>
+				<li><a href="#">Small product (four)</a></li>
+				<li><a href="#">Big product (five)</a></li>
+				<li><a href="#">Big product (six)</a></li>
+				<li><a href="#">Big product (seven)</a></li>
+				<li><a href="#">Big product (eight)</a></li>
+				<li><a href="#">Enourmous product (nine)</a></li>
+				<li><a href="#">Enourmous product (ten)</a></li>
+				<li><a href="#">Enourmous product (eleven)</a></li>
+			</ul>
+		</li>
+	</ul>
+	
+	
+	
+	
+	
+	
+	
+	<ul id="settings-nav">
+		<li class="navstyle"><a href="#">isaakhayes@gmail.com</a></li>	
+			<!--
+			
+			DO THE SAME AS THE MORE APPS BUTTON DROPDOWN
+			
+			<ul>
+				<li><a href="#">Sign out</a></li>
+				<li><a href="#">My Profile</a></li>
+				<li><a href="#">Add Account</a></li>
+				<li><a href="#">Privacy</a></li>
+			</ul>-->
+		<li class="navstyle"><a href="#" title="Tooltip message"><img class="header-icon" src="art/icons/white/16x16/wrench_plus_2.png" id="Settings"></a></li>	
+	</ul>
+</nav>
+
+
+
+
+
+
+<!-- Second Header -->
+<section id="mail-header">
+	<div id="mail-btns-L">
+		<button id="btn" class="comp-btn" onclick="javascript:openModal()">Compose</button>
+		
+		
+		
+		
+		<div id="dialog-modal" title="Basic modal dialog">
+			<form name="contactform" method="post" action="send_form_email.php">
+				<table width="450px">
+					<tr>
+						<td valign="top">
+							<label for="from">From</label>
+						</td>
+						<td valign="top">
+							<input  type="text" name="from" maxlength="100" size="73">
+						</td>
+					</tr>
+					<tr>
+						<td valign="top">
+							<label for="to">To</label>
+						</td>
+						<td valign="top">
+							<input  type="text" name="to" maxlength="100" size="73">
+						</td>
+					</tr>
+					<tr>
+						<td valign="top" colspan="2">
+							<a href="#">CC</a>, <a href="#">BCC</a>
+						</td>
+					</tr>
+					<tr>
+						<td valign="top">
+							<label for="subject">Subject</label>
+						</td>
+						<td valign="top">
+							<input  type="text" name="subject" maxlength="100" size="73">
+						</td>
+					</tr>
+					<tr>
+						<td valign="top" colspan="2">
+							<a href="#">Add Attachment</a>, <a href="#">Create Invitation</a>
+						</td>
+					</tr>
+					<tr>
+						<td valign="top">
+							<label for="last_name">Message Body</label>
+						</td>
+						<td valign="top">
+							<input  type="text" name="last_name" maxlength="1000" size="73" >
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" style="text-align:center">
+							<input type="submit" value="Submit">  <a href="http://www.freecontactform.com/email_form.php">Email Form</a>
+						</td>
+					</tr>
+				</table>
+		</div>
+		
+		
+		
+		
+		<button class="sm-btn" onclick="#" id="Mark selected as read">Mark as Read</button>
+		<button class="right-btn" onclick="#" id="Delete emails">Delete</button>
+		<button class="right-btn" onclick="#" id="Mark as Spam">Spam</button>
+		<button class="right-btn" onclick="#" id="Move to different folder">Move to:</button>
+		<button class="sm-btn" onclick="#" id="Reply or reply all">Reply</button>
+		<button class="right-btn" onclick="#" id="Forward">Forward</button>
+		<button class="sm-btn" onclick="#" id="Sort mail by specific type">Sort Options</button>
+		<button class="sm-btn" onclick="#" id="Modify the look of your mail">View Options</button>
+	</div>
+	<div id="mail-btns-R">
+		<button type=button class="sm-btn" onclick="#" disabled="disabled" id="Current Pages Viewed">1-50 of 50</button>
+		<button class="sm-btn" onclick="#" id="Previous">Previous</button>
+		<button class="right-btn" onclick="#" id="Next">Next</button>	
+	</div>
+</section>
+<!-- Left -->
+<section id="sect-1"> 
+	<ul class="side-nav">
+		<li>Inbox</li>
+		<li>Sharred</li>
+		<li>Important</li>
+		<li>Sent Mail</li>
+		<li>Drafts</li>
+		<li>Expandable Parent 1</li>
+			<ul>
+				<li>Item 1</li>
+				<li>Item 2</li>
+				<li>Item 3</li>
+			</ul>
+		<li>Expandable Parent 2</li>
+			<ul>
+				<li>Item 1</li>
+				<li>Item 2</li>
+				<li>Item 3</li>
+			</ul>
+		<li>Expandable Parent 3</li>
+			<ul>
+				<li>Item 1</li>
+				<li>Item 2</li>
+				<li>Item 3</li>
+			</ul>
+		<li>Expandable Parent 4</li>
+			<ul>
+				<li>Item 1</li>
+				<li>Item 2</li>
+				<li>Item 3</li>
+			</ul>
+	</ul>
+</section>
+<!-- Center -->
+<section id="sect-2"> 
+	<div id="mail-ad">CX-9 - 7 passenger SUV - www.MazdaUSA.com - All New Mazda CX-9 crossover SUV. Seven Passengers the Zoom-Zoom Way. <a href="#">Why this ad?</a></div>
+	<ul>
+		<li class="mail">Item 1</li>
+		<li class="mail">Item 2</li>
+		<li class="mail">Item 3</li>
+		<li class="mail">Item 4</li>
+		<li class="mail">Item 5</li>
+		<li class="mail">Item 1</li>
+		<li class="mail">Item 2</li>
+		<li class="mail">Item 3</li>
+		<li class="mail">Item 4</li>
+		<li class="mail">Item 5</li>
+		<li class="mail">Item 1</li>
+		<li class="mail">Item 2</li>
+		<li class="mail">Item 3</li>
+		<li class="mail">Item 4</li>
+		<li class="mail">Item 5</li>
+		<li class="mail">Item 1</li>
+		<li class="mail">Item 2</li>
+		<li class="mail">Item 3</li>
+		<li class="mail">Item 4</li>
+		<li class="mail">Item 5</li>
+		<li class="mail">Item 1</li>
+		<li class="mail">Item 2</li>
+		<li class="mail">Item 3</li>
+		<li class="mail">Item 4</li>
+		<li class="mail">Item 5</li>
+		<li class="mail">Item 1</li>
+		<li class="mail">Item 2</li>
+		<li class="mail">Item 3</li>
+		<li class="mail">Item 4</li>
+		<li class="mail">Item 5</li>
+		<li class="mail">Item 1</li>
+		<li class="mail">Item 2</li>
+		<li class="mail">Item 3</li>
+		<li class="mail">Item 4</li>
+		<li class="mail">Item 5</li>
+		<li class="mail">Item 1</li>
+		<li class="mail">Item 2</li>
+		<li class="mail">Item 3</li>
+		<li class="mail">Item 4</li>
+		<li class="mail">Item 5</li>
+		<li class="mail">Item 1</li>
+		<li class="mail">Item 2</li>
+		<li class="mail">Item 3</li>
+		<li class="mail">Item 4</li>
+		<li class="mail">Item 5</li>
+		<li class="mail">Item 1</li>
+		<li class="mail">Item 2</li>
+		<li class="mail">Item 3</li>
+		<li class="mail">Item 4</li>
+		<li class="mail">Item 5</li>
+	</ul>
+	<div id="mail-ad">CX-9 - 7 passenger SUV - www.MazdaUSA.com - All New Mazda CX-9 crossover SUV. Seven Passengers the Zoom-Zoom Way. <a href="#">Why this ad?</a></div>
+</section>
+<!-- Right -->
+<section id="sect-3">
+	<ul class="side-nav">
+		<li>Chat</li>
+			<ul>
+				<li>Item 1</li>
+				<li>Item 2</li>
+				<li>Item 3</li>
+				<li>Item 1</li>
+				<li>Item 2</li>
+				<li>Item 3</li>
+				<li>Item 1</li>
+				<li>Item 2</li>
+				<li>View all</li>
+			</ul>
+	</ul>
+</section>
+<!-- Footer -->
+<footer>
+	<ul>
+		<li class="small-text">©2012 Company <a href class="small-text">Terms & Privacy</a></li>
+	</ul>
+</footer>
+</body>
+</html>
